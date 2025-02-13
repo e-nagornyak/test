@@ -1,7 +1,35 @@
-export function DefaultNav() {
+import { LogIn } from "lucide-react"
+
+import type { User as UserType } from "@/types/auth"
+import { Button } from "@/components/ui/button"
+import { Loader } from "@/components/ui/loader"
+import { DefaultNavUser } from "@/components/common/nav/default-nav-user"
+
+interface DefaultNavProps {
+  user?: UserType
+  signOut: () => void
+  signIn: () => void
+  isLoading?: boolean
+  activePath: string
+}
+
+export const DefaultNav = ({
+  signIn,
+  signOut,
+  isLoading,
+  user,
+  activePath,
+}: DefaultNavProps) => {
   return (
-    <nav className="flex size-full items-center justify-between gap-3">
-      DefaultNav
-    </nav>
+    <div className="flex items-center space-x-4">
+      {user ? (
+        <DefaultNavUser activePath={activePath} user={user} signOut={signOut} />
+      ) : (
+        <Button disabled={isLoading} variant="outline" onClick={signIn}>
+          {isLoading ? <Loader /> : <LogIn />}
+          Log in
+        </Button>
+      )}
+    </div>
   )
 }

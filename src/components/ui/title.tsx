@@ -44,7 +44,7 @@ const titleVariants = cva("text-black dark:text-white", {
   defaultVariants: {
     size: "sm",
     weight: "normal",
-    leading: "normal", // Додаємо дефолтний варіант для висоти рядка
+    leading: "normal",
   },
 })
 

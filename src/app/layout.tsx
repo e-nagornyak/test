@@ -2,8 +2,10 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 
 import { cn } from "@/lib/cn"
+import { Toaster } from "@/components/ui/toaster"
 import { DefaultFooter } from "@/components/common/nav/default-footer"
 import { DefaultHeader } from "@/components/common/nav/default-header"
+import { AuthProvider } from "@/components/providers/auth-provider"
 
 import "../styles/globals.css"
 
@@ -40,9 +42,12 @@ export default function RootLayout({
           geistMono.variable
         )}
       >
-        <DefaultHeader />
-        <main className="flex min-h-screen flex-1 flex-col">{children}</main>
-        <DefaultFooter />
+        <AuthProvider>
+          <DefaultHeader />
+          <main className="flex min-h-screen flex-1 flex-col">{children}</main>
+          <DefaultFooter />
+        </AuthProvider>
+        <Toaster />
       </body>
     </html>
   )

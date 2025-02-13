@@ -62,6 +62,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -124,6 +128,7 @@ export default {
     },
   },
   plugins: [
+    require("tailwindcss-animate"),
     function ({ matchUtilities, theme }: PluginAPI) {
       matchUtilities(
         {

@@ -16,21 +16,6 @@ const footerSections = [
     ],
   },
   {
-    title: "Integrations",
-    items: ["Amazon", "eBay", "Etsy", "Google", "wooCommerce", "Magento"],
-  },
-  {
-    title: "Service",
-    items: [
-      "Shopify",
-      "OpenCart",
-      "Royal Mail Click&Drop",
-      "UPS",
-      "DHL",
-      "DPD",
-    ],
-  },
-  {
     title: "Service",
     items: [
       "Contact",
@@ -48,9 +33,9 @@ export function DefaultFooter() {
   return (
     <footer className="border-t border-border px-4 py-8 dark:border-white md:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          {footerSections.map((section, index) => (
-            <div key={index} className="hidden md:block">
+        <div className="flex justify-between gap-8">
+          {footerSections?.map((section, index) => (
+            <div key={index} className="hidden w-fit md:block">
               <h3 className="mb-4 font-semibold">{section.title}</h3>
               <ul className="space-y-2">
                 {section.items.map((item, itemIndex) => (
@@ -61,7 +46,7 @@ export function DefaultFooter() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between border-t border-gray-200 pt-8 md:flex-row">
+        <div className="flex flex-col items-center justify-between border-t border-gray-200 pt-8 md:mt-12 md:flex-row">
           <p className="mb-4 text-sm md:mb-0">&copy; 2025 </p>
           <nav className="mb-4 flex space-x-4 md:mb-0">
             <a href="#" className="text-sm hover:underline">

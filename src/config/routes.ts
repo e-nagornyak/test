@@ -1,10 +1,16 @@
 class RoutePaths {
   private static readonly baseAuth: string = "/auth"
-  private static readonly baseMyProfile: string = "/my-profile"
 
   public static readonly auth = {
-    login: `${RoutePaths.baseAuth}/login`,
-    register: `${RoutePaths.baseAuth}/register`,
+    signIn: `${RoutePaths.baseAuth}/signin`,
+  }
+
+  public static readonly public = {
+    home: "/",
+  }
+
+  public static readonly private = {
+    dashboard: "/dashboard",
   }
 }
 
